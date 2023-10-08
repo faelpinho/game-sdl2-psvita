@@ -1,5 +1,5 @@
 #include "sdl_wrap.hpp"
-#include "../common/common.hpp"
+#include "common.hpp"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_pixels.h>

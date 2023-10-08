@@ -50,7 +50,7 @@ add_executable(${PROJECT_NAME}
     src/game.cpp
     src/engine/sdl_wrap.cpp
     src/engine/engine.cpp
-    src/common/common.cpp
+    src/engine/common.cpp
     src/common/debugScreen.c
 )
 

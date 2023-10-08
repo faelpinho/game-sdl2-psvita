@@ -1,5 +1,5 @@
-#include "common/common.hpp"
 #include "common/debugScreen.h"
+#include "engine/common.hpp"
 #include "engine/sdl_wrap.hpp"
 #include "game.hpp"
 

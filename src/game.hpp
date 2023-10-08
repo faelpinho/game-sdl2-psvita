@@ -1,7 +1,7 @@
 #ifndef GAME_HPP
 #define GAME_HPP
 
-#include "common/common.hpp"
+#include "engine/common.hpp"
 #include "engine/engine.hpp"
 #include "engine/sdl_wrap.hpp"
 #include <cstdlib>
