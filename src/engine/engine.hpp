@@ -12,7 +12,7 @@ public:
         isPaused = false;
 
         currentTime = 0;
-        };
+    };
 
     void init();
     int getTicks();
