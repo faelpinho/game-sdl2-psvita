@@ -26,7 +26,7 @@ int main(int argc, char* argv[])
 
     Game game = Game(SKIP_TICKS, MAX_FRAMESKIP);
 
-    if (game.gfx.initSDL(VITA_SCREEN_WIDTH, VITA_SCREEN_HEIGHT / 2) == false) {
+    if (game.gfx.initSDL(VITA_SCREEN_WIDTH, VITA_SCREEN_HEIGHT) == false) {
         handleError("Erro ao iniciar SDL2");
         return -1;
     }
