@@ -14,7 +14,6 @@ const uint32_t SKIP_TICKS = FPS / 1000;
 
 int main(int argc, char* argv[])
 {
-
 #ifdef __vita__
 /*
     scePowerSetArmClockFrequency(222); // default: 444
@@ -35,7 +34,11 @@ int main(int argc, char* argv[])
     printf("Inicializando o game...\n");
 
     do {
-        game.loop();
+        game.handleInputs();
+
+        game.handleLogic();
+
+        game.handleGraphics();
 
     } while (game.isRunning); // (ctrl.buttons != SCE_CTRL_START || game.isRunning);
 

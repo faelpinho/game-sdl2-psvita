@@ -76,7 +76,6 @@ public:
     // =======
 
     void reset();
-    void loop();
     void handleInputs();
     void handleLogic();
     void handleGraphics();

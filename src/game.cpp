@@ -12,17 +12,6 @@ void Game::reset()
     score = 0;
 }
 
-void Game::loop()
-{
-    engine.currentTime = engine.getTicks();
-
-    handleInputs();
-
-    handleLogic();
-
-    handleGraphics();
-}
-
 void Game::handleInputs()
 {
     sceCtrlPeekBufferPositive(0, &ctrl, 1);
