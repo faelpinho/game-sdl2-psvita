@@ -1,7 +1,6 @@
 #include "engine/common.hpp"
-#include "engine/sdl_wrap.hpp"
+#include "engine/graphics.hpp"
 #include "game.hpp"
-
 #ifdef __vita__
 #include <psp2/power.h>
 #endif
@@ -14,6 +13,7 @@ const uint32_t SKIP_TICKS = FPS / 1000;
 
 int main(int argc, char* argv[])
 {
+
 #ifdef __vita__
 /*
     scePowerSetArmClockFrequency(222); // default: 444
@@ -25,7 +25,7 @@ int main(int argc, char* argv[])
 
     Game game = Game(SKIP_TICKS, MAX_FRAMESKIP);
 
-    if (game.gfx.initSDL(VITA_SCREEN_WIDTH, VITA_SCREEN_HEIGHT) == false) {
+    if (game.gfx.init(VITA_SCREEN_WIDTH, VITA_SCREEN_HEIGHT) == false) {
         handleError("Erro ao iniciar SDL2");
         return -1;
     }

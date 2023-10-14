@@ -3,7 +3,7 @@
 
 #include "engine/common.hpp"
 #include "engine/engine.hpp"
-#include "engine/sdl_wrap.hpp"
+#include "engine/graphics.hpp"
 #include <cstdlib>
 #include <stdbool.h>
 #include <stdint.h>
@@ -13,13 +13,13 @@ public:
     Game(uint32_t skipTicks, uint32_t maxFrameskip)
     {
         Engine engine = Engine();
-        SDLWrap gfx = SDLWrap();
+        Graphics gfx = Graphics();
 
         engine.skipTicks = skipTicks;
         engine.maxFrameskip = maxFrameskip;
     };
 
-    SDLWrap gfx;
+    Graphics gfx;
     Engine engine;
     SceCtrlData ctrl;
 

@@ -11,8 +11,8 @@
 enum { VITA_SCREEN_WIDTH = 960, VITA_SCREEN_HEIGHT = 544 };
 
 // delay funcs
-void delay(uint16_t tempo);
-void delayMiliseconds(uint16_t tempo);
-void delayMicroseconds(uint16_t tempo);
+void delay(uint16_t segundos);
+void delayMiliseconds(uint16_t milisegundos);
+void delayMicroseconds(uint16_t microsegundos);
 
 #endif

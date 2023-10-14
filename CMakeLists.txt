@@ -57,7 +57,14 @@ add_executable(${PROJECT_NAME}
 # Library to link to (drop the -l prefix). This will mostly be stubs.
 target_link_libraries(${PROJECT_NAME}
     SDL2::SDL2
-    #SceDisplay_stub   # This used by debugScreenPrintf()
+    #vita2d
+    SceDisplay_stub   # This used by debugScreenPrintf()
+    SceCtrl_stub
+    #SceAudio_stub
+    #SceSysmodule_stub
+    #SceGxm_stub
+    #SceCommonDialog_stub
+    #SceTouch_stub
 )
 
 
