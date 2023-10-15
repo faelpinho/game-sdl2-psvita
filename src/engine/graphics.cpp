@@ -31,13 +31,15 @@ bool Graphics::init(uint16_t screen_width, uint16_t screen_height)
 
 void Graphics::destroy()
 {
-    SDL_Delay(100);
     // SDL_DestroyTexture(imageTexture);
     SDL_DestroyRenderer(gRenderer);
     SDL_DestroyWindow(gWindow);
+
+    // framebuffer = NULL;
     gWindow = NULL;
     gRenderer = NULL;
-    // framebuffer = NULL;
+
+    IMG_Quit();
     SDL_Quit();
 }
 
@@ -47,16 +49,21 @@ void Graphics::clearScreen()
     SDL_RenderClear(gRenderer);
 }
 
+void Graphics::render()
+{
+    //
+    SDL_RenderPresent(gRenderer);
+}
+
 void Graphics::fillRect(int x, int y, int w, int h, uint8_t r, uint8_t g, uint8_t b)
 {
     SDL_Rect fillRect = { x, y, w, h };
     SDL_SetRenderDrawColor(gRenderer, r, g, b, 255);
     SDL_RenderFillRect(gRenderer, &fillRect);
-    SDL_RenderPresent(gRenderer);
 }
 
-SDL_Surface* Graphics::loadImage(const char* path)
+void Graphics::drawImage(int x, int y, int w, int h, SDL_Texture* texture)
 {
-    SDL_Surface* image = SDL_LoadBMP(path);
-    return image;
+    SDL_Rect imagePos = { x, y, w, h };
+    SDL_RenderCopy(gRenderer, texture, NULL, &imagePos);
 }

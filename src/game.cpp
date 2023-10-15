@@ -4,67 +4,74 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+void Game::init()
+{
+    reset();
+    player.Texture = IMG_LoadTexture(gfx.gRenderer, "app0:/res/teste.png");
+}
+
 void Game::reset()
 {
     engine.currentTime = 0;
 
-    Player.reset();
     score = 0;
+
+    player.reset();
 }
 
 void Game::handleInputs()
 {
     sceCtrlPeekBufferPositive(0, &ctrl, 1);
 
-    Player.Direction.X = 0;
-    Player.Direction.Y = 0;
+    player.Direction.X = 0;
+    player.Direction.Y = 0;
 
     if (ctrl.buttons & SCE_CTRL_START) {
         isRunning = false;
     }
 
     if (ctrl.buttons & SCE_CTRL_UP) {
-        Player.Direction.Y = -1;
+        player.Direction.Y = -1;
     }
 
     if (ctrl.buttons & SCE_CTRL_DOWN) {
-        Player.Direction.Y = 1;
+        player.Direction.Y = 1;
     }
 
     if (ctrl.buttons & SCE_CTRL_LEFT) {
-        Player.Direction.X = -1;
+        player.Direction.X = -1;
     }
 
     if (ctrl.buttons & SCE_CTRL_RIGHT) {
-        Player.Direction.X = 1;
+        player.Direction.X = 1;
     }
 
     if (ctrl.buttons & SCE_CTRL_LTRIGGER) {
-        Player.Velocity -= 1;
+        player.Velocity -= 1;
     }
 
     if (ctrl.buttons & SCE_CTRL_RTRIGGER) {
-        Player.Velocity += 1;
+        player.Velocity += 1;
     }
 
     if (ctrl.buttons & SCE_CTRL_CIRCLE) {
-        Player.X = Player.Y = 0;
+        player.X = player.Y = 0;
     }
 
     if (ctrl.buttons & SCE_CTRL_SQUARE) {
-        Player.randColor();
+        // player.randColor();
     }
 
     // executa
-    if (Player.Direction.X != 0 || Player.Direction.Y != 0) {
-        movePlayer(Player.Direction);
+    if (player.Direction.X != 0 || player.Direction.Y != 0) {
+        movePlayer(player.Direction);
     }
 }
 
 void Game::movePlayer(Directions direction)
 {
-    Player.X += direction.X * Player.Velocity;
-    Player.Y += direction.Y * Player.Velocity;
+    player.X += direction.X * player.Velocity;
+    player.Y += direction.Y * player.Velocity;
 }
 
 void Game::handleLogic()
@@ -76,8 +83,15 @@ void Game::handleLogic()
 
 void Game::handleGraphics()
 {
-    gfx.clearScreen();
     //
-
-    gfx.fillRect(Player.X, Player.Y, 20, 20, Player.R, Player.G, Player.B);
+    gfx.fillRect(player.X, player.Y, player.W, player.H, 50, 150, 50);
+    // gfx.drawImage(player.X, player.Y, player.W, player.H, player.Texture);
 }
+
+/*
+void Game::renderPlayer(int x, int y, int w, int h, SDL_Texture* texture)
+{
+    SDL_Rect imagePos = { x, y, w, h };
+    SDL_RenderCopy(gfx.gRenderer, texture, NULL, &imagePos);
+}
+*/

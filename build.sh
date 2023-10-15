@@ -1,11 +1,7 @@
-cd bin
+cd bin && \
 
-cmake .. && make
+cmake .. && make && \
 
-cp meuhello.self eboot.bin
-
-rm meuhello meuhello.self meuhello.self.out meuhello.velf meuhello.vpk.out
-
-cp meuhello.vpk ~/.local/share/Vita3K/Vita3K/ux0/temp/meuhello.vpk
+rm meuhello meuhello.self meuhello.self.out meuhello.velf meuhello.vpk.out meuhello.vpk_param.sfo && \
 
 vita3k meuhello.vpk

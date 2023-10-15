@@ -38,7 +38,9 @@ int main(int argc, char* argv[])
 
         game.handleLogic();
 
+        game.gfx.clearScreen();
         game.handleGraphics();
+        game.gfx.render();
 
     } while (game.isRunning); // (ctrl.buttons != SCE_CTRL_START || game.isRunning);
 
