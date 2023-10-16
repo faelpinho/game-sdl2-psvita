@@ -38,24 +38,13 @@ public:
     } Direction;
 
     struct Player {
-        Game* g;
-        uint16_t X = 150;
-        uint16_t Y = 150;
-        uint16_t W = 50;
-        uint16_t H = 50;
-        uint8_t Velocity = 2;
+        uint16_t X = 100;
+        uint16_t Y = 100;
+        uint16_t W = 20;
+        uint16_t H = 20;
+        uint8_t Velocity = 1;
         Directions Direction;
         SDL_Texture* Texture = NULL;
-
-        /** testes */
-        void reset()
-        {
-            uint16_t X = 150;
-            uint16_t Y = 150;
-            uint16_t W = 50;
-            uint16_t H = 50;
-            uint8_t Velocity = 2;
-        }
     } player;
 
     // =======
@@ -67,7 +56,7 @@ public:
     void handleInputs();
     void handleLogic();
     void handleGraphics();
-    void movePlayer(Directions direction);
+    void movePlayer(int directionX, int directionY);
 };
 
 #endif
