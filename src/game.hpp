@@ -11,13 +11,10 @@
 
 class Game {
 public:
-    Game(uint32_t skipTicks, uint32_t maxFrameskip)
+    Game()
     {
         Engine engine = Engine();
         Graphics gfx = Graphics();
-
-        engine.skipTicks = skipTicks;
-        engine.maxFrameskip = maxFrameskip;
     };
 
     Graphics gfx;
@@ -27,25 +24,40 @@ public:
     bool isRunning = true;
 
     int score;
+    int currentSize;
+    int MW;
+    int NH;
 
     // =======
     // Structs
     // =======
 
-    struct Directions {
-        int16_t X = 0;
-        int16_t Y = 0;
-    } Direction;
+    enum Directions {
+        STOPPED = 0,
+        UP = 1,
+        DOWN = 2,
+        LEFT = 3,
+        RIGHT = 4,
+    };
 
     struct Player {
-        uint16_t X = 100;
-        uint16_t Y = 100;
-        uint16_t W = 20;
-        uint16_t H = 20;
+        uint16_t X = 4;
+        uint16_t Y = 4;
+        uint16_t W = 32;
+        uint16_t H = 32;
         uint8_t Velocity = 1;
-        Directions Direction;
+        Directions LastDirection = Directions::STOPPED;
         SDL_Texture* Texture = NULL;
-    } player;
+    } player[50];
+
+    struct Fruit {
+        uint16_t X = 4;
+        uint16_t Y = 4;
+        uint16_t W = 32;
+        uint16_t H = 32;
+        int8_t Timer = -1;
+        SDL_Texture* Texture = NULL;
+    } fruit;
 
     // =======
     // Methods
@@ -56,7 +68,7 @@ public:
     void handleInputs();
     void handleLogic();
     void handleGraphics();
-    void movePlayer(int directionX, int directionY);
+    void movePlayer(Directions currentDirection);
 };
 
 #endif
