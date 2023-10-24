@@ -5,7 +5,7 @@ I'm doing this project to start and keep training my skills about game developme
 ## Steps to build it:
 
 - Install VitaSDK using [vdpm](https://github.com/vitasdk/vdpm)
-- Install [Vita3K](https://vita3k.org/quickstart.html) or use your console
+- Build/Install [Vita3K](https://vita3k.org/quickstart.html) or use your console
 - Clone this project
 - Open the terminal inside this project and `run cmake . && make`, or edit `build.sh` and adjust paths according your installation.
 
@@ -13,4 +13,4 @@ I use `build.sh` as an easy way to build and copy generated vpk to my `vita3k` d
 
 ## Tips:
 
-I'm using Manjaro Mate as OS. If you got an error while building Vita3K, like "pkgver is not allowed to be empty", try to alter the pkgver in PKGBUILD file. Ex.: pkgver=3409.6911ed3 to pkgver=3409 (it worked for me)
+I'm using Manjaro Mate as OS. If you got an error while building Vita3K, like "pkgver is not allowed to be empty", try to alter the pkgver in PKGBUILD file. Ex.: pkgver=3409.6911ed3 to pkgver=3409 (it worked for me, using AUR: https://aur.archlinux.org/vita3k-bin.git)
